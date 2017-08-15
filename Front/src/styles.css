@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body{
+  font-family: 'Roboto', sans-serif;
+  background: #f1f1f1;
+  margin: 0;
+  height: 100%;
+}
+.top-section{
+  height:100%;
+}
+.footer{
+  display:block;
+  position:absolute;
+  bottom:0px;
+  text-align: center;
+}
+md-sidenav {
+  width: 200px;
+}
+.mat-toolbar-row {
+    height: 30px;
+}
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+.my-drop-zone { 
+  border: dotted 3px lightgray; 
+}
+.nv-file-over { 
+  /* Default class applied to drop zones on over */
+  border: dotted 3px red; 
+} 
+.another-file-over-class { 
+  border: dotted 3px green; 
+}
+.title-page {
+    padding: 10px;
+    font-style: normal;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: inherit;
+    color: #999;
+}
+  
+.subtitle-page {
+    padding: 10px;
+    font-style: normal;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: inherit;
+    color: #999;
+    margin-bottom: 20px;
+}

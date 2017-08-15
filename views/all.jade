@@ -1,0 +1,10 @@
+extends ./layout.jade
+block contenido
+    h1 Bienvenidos !!
+    a(href="/login") Iniciar sesión
+
+    p!= rjson['results'][0].name
+    - for (var i = rjson['results'].length -1 ; i >= 0; i--)
+     p!= rjson['results'][i].name
+
+
