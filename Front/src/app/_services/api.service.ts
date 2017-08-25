@@ -6,7 +6,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/observable/throw';
 import { Router } from '@angular/router';
-import { timeout } from '../../environments/environment';
 
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
@@ -19,7 +18,6 @@ export class ApiService {
     constructor(private http: Http,
         private router: Router,
         private loading: SlimLoadingBarService,
-        /*,private toastyService: ToastyService*/
     ) { }
 
     // HTTP Methods
@@ -28,7 +26,6 @@ export class ApiService {
         const headers = new Headers(
             { 'connection': 'keep-alive' }
         );
-        // this.addAuthToken(headers);
 
         const search: URLSearchParams = new URLSearchParams();
         if (params) {
@@ -52,12 +49,10 @@ export class ApiService {
         this.loading.start();
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const body = JSON.stringify(data);
-        // this.addAuthToken(headers);
 
         return this.http.post(url, body, {
             headers: headers
         }).map(response => {
-            // this.toastyService.success({ title: "Acción completada correctamente", theme: "bootstrap", timeout: timeout.seconds });
             return response.json();
         }).catch(this.handleErrorBind)
             .finally(() => {
@@ -69,11 +64,9 @@ export class ApiService {
         this.loading.start();
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const body = JSON.stringify(data);
-        // this.addAuthToken(headers);
         return this.http.put(`${url}/${id}`, body, {
             headers: headers
         }).map(response => {
-            // this.toastyService.success({ title: "Cambios aplicados correctamente", theme: "bootstrap", timeout: timeout.seconds });
             return response.status === 204;
         }).catch(this.handleErrorBind)
             .finally(() => {
@@ -84,11 +77,9 @@ export class ApiService {
     delete(url: string, id: number) {
         this.loading.start();
         const headers = new Headers();
-        // this.addAuthToken(headers);
         return this.http.delete(`${url}/${id}`, {
             headers: headers
         }).map(response => {
-            // this.toastyService.success({ title: "Eliminación completa", theme: "bootstrap", timeout: timeout.seconds });
             return response.status === 204;
         }).catch(this.handleErrorBind)
             .finally(() => {
@@ -102,13 +93,10 @@ export class ApiService {
         const errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
 
-        // Validate unauthorize calls
         if (error.status && error.status === 401) {
-            // this.authService.logout();
             console.log('salir');
         }
 
-        // this.toastyService.error({ title: errMsg, theme: "bootstrap", timeout: timeout.seconds });
         return Observable.throw({
             status: error.status,
             message: errMsg

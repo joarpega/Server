@@ -13,6 +13,7 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 import { AppComponent } from './app.component';
 import { PanelComponent } from './modules/panel/panel.component';
+import { PersonajeComponent } from './modules/personaje/personaje.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: Http) { return new TranslateStaticLoader(httpClient, '/assets/i18n/', '.json'); }
@@ -20,7 +21,8 @@ export function HttpLoaderFactory(httpClient: Http) { return new TranslateStatic
 @NgModule({
   declarations: [
     AppComponent,
-    PanelComponent
+    PanelComponent,
+    PersonajeComponent
   ],
   imports: [
     BrowserModule,

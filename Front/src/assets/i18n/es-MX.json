@@ -1,5 +1,18 @@
 {
     "fmf": "FEDERACIÓN MEXICANA DE FÚTBOL",
     "fmfMenu": "Federación Mexicana",
-    "person": "/personaje/:nombre"
+    "person": "Route: http://localhost:3000/api/personaje/:nombre",
+    "route_1": "Personaje",
+    "home": "Inicio",
+    "message_panle": "Selecciona alguna opción del menú.",
+    "star_wars": "STAR WARS",
+    "name": "Nombre",
+    "height": "Altura",
+    "mass": "Peso",
+    "hair_color": "Color de cabello",
+    "skin_color": "Color de piel",
+    "eye_color": "Color de ojos",
+    "birth_year": "Año de nacimiento",
+    "gender": "Genero",
+    "homeworld": "Planeta dodne vive"
 }

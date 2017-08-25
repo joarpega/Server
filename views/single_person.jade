@@ -1,0 +1,21 @@
+extends ./layout.jade
+block contenido
+ #r.row
+  #c.col-sm-6
+  #t.thumbnail
+   #c.caption
+    h3!=rjson.name
+    p Altura: 
+     label!= rjson.height
+    p Peso: 
+     label!= rjson.hair_color
+    p Color de piel: 
+     label!= rjson.skin_color
+    p Color de ojos: 
+     label!= rjson.eye_color
+    p Año de nacimiento: 
+     label!= rjson.birth_year
+    p Genero: 
+     label!= rjson.gender
+
+

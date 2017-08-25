@@ -13,7 +13,7 @@ export const timeout = {
 };
 
 export const url = {
-  base: 'http://localhost:3000/',
+  base: 'http://localhost:3000/api/',
 };
 
 export const apiUrl = {

@@ -22,15 +22,18 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 
-
 @Component({
-  selector: 'app-panel',
-  templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.css'],
+  selector: 'app-personaje',
+  templateUrl: './personaje.component.html',
+  styleUrls: ['./personaje.component.css'],
   providers: [ApiService]
 })
+export class PersonajeComponent implements OnInit {
+  private translations: any;
+  private viewData: any = {};
+  dataPerson: any = [];
+  dataHtml = '';
 
-export class PanelComponent implements OnInit {
 
   constructor(private http: Http,
     translate: TranslateService,
@@ -44,5 +47,22 @@ export class PanelComponent implements OnInit {
     translate.use(language);
   }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    const self = this;
+
+    const sendData = [{ name: 'pr', value: '1' },
+    { name: 'op', value: 6 }];
+
+    self.viewData = self.apiService
+      .get(apiUrl.personaje + 'luke')
+      .subscribe(x => {
+        console.log('algo------------');
+        console.log(x);
+        // self.dataPerson = x['result'];
+        // self.dataHtml = x['html'];
+        // console.log(self.dataHtml);
+      });
+    console.log(self.viewData);
+  }
+
 }

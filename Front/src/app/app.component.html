@@ -1,16 +1,13 @@
 <md-sidenav-container style="height: 100%">
   <md-sidenav #sidenav mode="push">
     <md-nav-list>
-      <a md-list-item [routerLink]="['/panel']" (click)="sidenav.close()">{{'fmfMenu'|translate}}</a>
-      <!--
-      <a md-list-item [routerLink]="['/shipment-plans']" (click)="sidenav.close()">Carga de embarques</a>
-      <a md-list-item [routerLink]="['/CausesSubcauses']" (click)="sidenav.close()">Causas y Subcausas</a>
-      <a md-list-item [routerLink]="['/on-road-services']" (click)="sidenav.close()" >{{'on_road_services'|translate}}</a>
-    -->
+      <a md-list-item [routerLink]="['/panel']" (click)="sidenav.close()">{{'home'|translate}}</a>
+      <a md-list-item [routerLink]="['/personaje']" (click)="sidenav.close()">{{ 'route_1'|translate }}</a>
     </md-nav-list>
   </md-sidenav>
   <md-toolbar color="primary">
     <button md-icon-button (click)="sidenav.toggle()"><md-icon class="md-24" >menu</md-icon></button>
+    <label class='title-page' style='margin-top: 10px; color: #ffffff;'>{{'fmf'|translate}}</label>
   </md-toolbar>
 
   <div class="container-fluid" style="padding: 0">

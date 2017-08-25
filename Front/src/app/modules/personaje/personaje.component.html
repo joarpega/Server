@@ -1,0 +1,28 @@
+<div class="container-fluid" style="margin: 0px 30px 30px 30px">
+  <label class="title-page" style="margin-top: 10px;">{{'person'|translate}}</label>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <md-card class="example-card">
+          <md-card-header>
+            <div md-card-avatar class="example-header-image"></div>
+            <md-card-title>{{dataPerson.name}}</md-card-title>
+            <md-card-subtitle>{{'star_wars'|translate}}</md-card-subtitle>
+          </md-card-header>
+          <!-- <img xs-card-image src="../../../assets/img/Luke-rotjpromo.jpg"> -->
+          <md-card-content>
+            <p md-line="">{{'height'|translate}}: {{dataPerson.height}} </p>
+            <p md-line="">{{'hair_color'|translate}}: {{dataPerson.hair_color}} </p>
+            <p md-line="">{{'skin_color'|translate}}: {{dataPerson.skin_color}} </p>
+            <p md-line="">{{'eye_color'|translate}}: {{dataPerson.eye_color}} </p>
+            <p md-line="">{{'birth_year'|translate}}: {{dataPerson.birth_year}} </p>
+            <p md-line="">{{'gender'|translate}}: {{dataPerson.gender}} </p>
+          </md-card-content>
+        </md-card>
+        <div [innerHTML]="dataHtml"></div>
+
+      </div>
+  </div>
+  </div>
+</div>
+
