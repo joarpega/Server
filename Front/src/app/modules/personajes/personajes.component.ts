@@ -23,12 +23,12 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 
 @Component({
-  selector: 'app-personaje',
-  templateUrl: './personaje.component.html',
-  styleUrls: ['./personaje.component.css'],
+  selector: 'app-personajes',
+  templateUrl: './personajes.component.html',
+  styleUrls: ['./personajes.component.css'],
   providers: [ApiService]
 })
-export class PersonajeComponent implements OnInit {
+export class PersonajesComponent implements OnInit {
   private translations: any;
   private viewData: any = {};
   dataPerson: any = [];

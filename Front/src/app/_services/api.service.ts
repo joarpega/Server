@@ -23,9 +23,10 @@ export class ApiService {
     // HTTP Methods
     get(url: string, params: Array<any> = []): Observable<any> {
         this.loading.start();
-        const headers = new Headers(
-            { 'connection': 'keep-alive' }
-        );
+        // const headers = new Headers(
+        //     { 'connection': 'keep-alive' }
+        // );
+        const headers = new Headers({ 'Content-Type': 'application/json' });
 
         const search: URLSearchParams = new URLSearchParams();
         if (params) {

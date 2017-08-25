@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Headers, Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -23,12 +22,12 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 
 @Component({
-  selector: 'app-personaje',
-  templateUrl: './personaje.component.html',
-  styleUrls: ['./personaje.component.css'],
+  selector: 'app-residentes',
+  templateUrl: './residentes.component.html',
+  styleUrls: ['./residentes.component.css'],
   providers: [ApiService]
 })
-export class PersonajeComponent implements OnInit {
+export class ResidentesComponent implements OnInit {
   private translations: any;
   private viewData: any = {};
   dataPerson: any = [];

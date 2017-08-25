@@ -3,6 +3,8 @@
     <md-nav-list>
       <a md-list-item [routerLink]="['/panel']" (click)="sidenav.close()">{{'home'|translate}}</a>
       <a md-list-item [routerLink]="['/personaje']" (click)="sidenav.close()">{{ 'route_1'|translate }}</a>
+      <a md-list-item [routerLink]="['/personajes']" (click)="sidenav.close()">{{ 'route_2'|translate }}</a>
+      <a md-list-item [routerLink]="['/residentes']" (click)="sidenav.close()">{{ 'route_3'|translate }}</a>
     </md-nav-list>
   </md-sidenav>
   <md-toolbar color="primary">

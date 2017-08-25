@@ -14,6 +14,8 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { AppComponent } from './app.component';
 import { PanelComponent } from './modules/panel/panel.component';
 import { PersonajeComponent } from './modules/personaje/personaje.component';
+import { PersonajesComponent } from './modules/personajes/personajes.component';
+import { ResidentesComponent } from './modules/residentes/residentes.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: Http) { return new TranslateStaticLoader(httpClient, '/assets/i18n/', '.json'); }
@@ -22,7 +24,9 @@ export function HttpLoaderFactory(httpClient: Http) { return new TranslateStatic
   declarations: [
     AppComponent,
     PanelComponent,
-    PersonajeComponent
+    PersonajeComponent,
+    PersonajesComponent,
+    ResidentesComponent
   ],
   imports: [
     BrowserModule,

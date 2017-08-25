@@ -3,6 +3,8 @@
     "fmfMenu": "Federación Mexicana",
     "person": "Route: http://localhost:3000/api/personaje/:nombre",
     "route_1": "Personaje",
+    "persons": "Route: http://localhost:3000/api/personajes",
+    "route_2": "Personajes",
     "home": "Inicio",
     "message_panle": "Selecciona alguna opción del menú.",
     "star_wars": "STAR WARS",
@@ -14,5 +16,7 @@
     "eye_color": "Color de ojos",
     "birth_year": "Año de nacimiento",
     "gender": "Genero",
-    "homeworld": "Planeta dodne vive"
+    "homeworld": "Planeta dodne vive",
+    "residentes": "Route: http://localhost:3000/api/residentes",
+    "route_3": "Residentes"
 }
