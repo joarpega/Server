@@ -3,15 +3,27 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div  style="margin: 1.5em 0em 1.5em 0em;">
+            <form>
+                <md-select placeholder='Selecciona Personaje' (change)="changeSelect($event)" [(ngModel)]="selectedValue" name="person">
+                  <md-option *ngFor="let person of selectPerson" [value]="person.value">
+                    {{person.viewValue}}
+                  </md-option>
+                </md-select>
+                <!--<p> Selected value: {{selectedValue}} </p>-->
+                <span id="helpBlock" class="help-block">URL Api. <strong><p id="route"></p></strong></span>
+              </form>
+        </div>
+          
         <md-card class="example-card">
-          <md-card-header>
-            <div md-card-avatar class="example-header-image"></div>
+          <md-card-header style="margin-bottom: 20px;">
+            <div id="imgAvatar" md-card-avatar></div>
             <md-card-title>{{dataPerson.name}}</md-card-title>
             <md-card-subtitle>{{'star_wars'|translate}}</md-card-subtitle>
           </md-card-header>
-          <!-- <img xs-card-image src="../../../assets/img/Luke-rotjpromo.jpg"> -->
+          <img xs-card-image style="margin-bottom: 20px; height: 481px; width: 350px;" id="imgD">
           <md-card-content>
-            <p md-line="">{{'height'|translate}}: {{dataPerson.height}} </p>
+            <p md-line=""> {{'height'|translate}}: {{dataPerson.height}} </p>
             <p md-line="">{{'hair_color'|translate}}: {{dataPerson.hair_color}} </p>
             <p md-line="">{{'skin_color'|translate}}: {{dataPerson.skin_color}} </p>
             <p md-line="">{{'eye_color'|translate}}: {{dataPerson.eye_color}} </p>
@@ -19,8 +31,6 @@
             <p md-line="">{{'gender'|translate}}: {{dataPerson.gender}} </p>
           </md-card-content>
         </md-card>
-        <div [innerHTML]="dataHtml"></div>
-
       </div>
   </div>
   </div>

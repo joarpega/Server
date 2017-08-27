@@ -18,5 +18,6 @@
     "gender": "Genero",
     "homeworld": "Planeta dodne vive",
     "residentes": "Route: http://localhost:3000/api/residentes",
-    "route_3": "Residentes"
+    "route_3": "Residentes",
+    "select_person": "Selecciona Personaje"
 }

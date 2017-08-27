@@ -19,7 +19,12 @@ export const url = {
 export const apiUrl = {
   production: false,
   login: '',
-  personaje: url.base + 'personaje/'
+  personaje: url.base + 'personaje/',
+  luke: url.base + 'personaje/luke',
+  han: url.base + 'personaje/han',
+  leia: url.base + 'personaje/leia',
+  rey: url.base + 'personaje/rey',
+  personajes: url.base + 'personajes',
 };
 
 

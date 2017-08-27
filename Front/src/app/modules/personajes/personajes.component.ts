@@ -1,26 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Headers, Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/finally';
-import 'rxjs/add/observable/throw';
 import { Router } from '@angular/router';
 import { TranslateService } from 'ng2-translate';
 import { apiUrl, environment } from '../../../environments/environment';
 import { ApiService } from '../../_services/index';
 
-
-import { ElementRef, ViewChild } from '@angular/core';
 import { DataSource } from '@angular/cdk';
+import { MdPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/observable/fromEvent';
+
 
 @Component({
   selector: 'app-personajes',
@@ -30,9 +22,9 @@ import 'rxjs/add/observable/fromEvent';
 })
 export class PersonajesComponent implements OnInit {
   private translations: any;
+
   private viewData: any = {};
-  dataPerson: any = [];
-  dataHtml = '';
+  dataSource: any= [];
 
 
   constructor(private http: Http,
@@ -49,20 +41,18 @@ export class PersonajesComponent implements OnInit {
 
   ngOnInit() {
     const self = this;
+    self.loadData();
+   }
 
-    const sendData = [{ name: 'pr', value: '1' },
-    { name: 'op', value: 6 }];
 
+  loadData() {
+    const self = this;
     self.viewData = self.apiService
-      .get(apiUrl.personaje + 'luke')
+      .get(apiUrl.personajes)
       .subscribe(x => {
-        console.log('algo------------');
+        self.dataSource = x['result'];
         console.log(x);
-        self.dataPerson = x['result'];
-        // self.dataHtml = x['html'];
-        // console.log(self.dataHtml);
       });
-    console.log(self.viewData);
   }
 
 }

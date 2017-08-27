@@ -22,6 +22,9 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 
+
+declare var $: any;
+
 @Component({
   selector: 'app-personaje',
   templateUrl: './personaje.component.html',
@@ -29,15 +32,52 @@ import 'rxjs/add/observable/fromEvent';
   providers: [ApiService]
 })
 export class PersonajeComponent implements OnInit {
-  private translations: any;
+
+  private translations: any = {};
+
   private viewData: any = {};
   dataPerson: any = [];
   dataHtml = '';
+  cssClass = 'default';
+  prevClass = 'default';
+
+  selectPerson = [
+    {
+      value: '0',
+      viewValue: 'Luke',
+      url: apiUrl.luke,
+      css: 'luke',
+      img: '../../../assets/img/Luke.jpg'
+    },
+    {
+      value: '1',
+      viewValue: 'Han Solo',
+      url: apiUrl.han,
+      css: 'han',
+      img: '../../../assets/img/Han.jpg'
+    },
+    {
+      value: '2',
+      viewValue: 'Leia',
+      url: apiUrl.leia,
+      css: 'leia',
+      img: '../../../assets/img/Leia.jpg'
+    },
+    {
+      value: '3',
+      viewValue: 'Rey',
+      url: apiUrl.rey,
+      css: 'rey',
+      img: '../../../assets/img/Rey.jpg'
+    },
+  ];
+  selectedValue: string;
 
 
   constructor(private http: Http,
     translate: TranslateService,
     public apiService: ApiService) {
+    const self = this;
     // Add supported languages
     translate.addLangs(['en', 'es-MX']);
 
@@ -45,24 +85,38 @@ export class PersonajeComponent implements OnInit {
     const language = environment.language;
     translate.setDefaultLang(language);
     translate.use(language);
+
+    translate.get('select_person').subscribe(label => self.translations.select_person = label);
   }
 
   ngOnInit() {
     const self = this;
+    $(document).ready(function () {
+      $('#imgAvatar').addClass(self.cssClass);
+    });
+  }
 
-    const sendData = [{ name: 'pr', value: '1' },
-    { name: 'op', value: 6 }];
+  private changeSelect(value: any) {
+    const self = this;
+
+    // tslint:disable-next-line:radix
+    const indice = parseInt(value['value']);
+
+    const person = self.selectPerson[indice];
 
     self.viewData = self.apiService
-      .get(apiUrl.personaje + 'luke')
+      .get(person.url)
       .subscribe(x => {
-        console.log('algo------------');
-        console.log(x);
         self.dataPerson = x['result'];
-        // self.dataHtml = x['html'];
-        // console.log(self.dataHtml);
+        self.cssClass = person.css;
+        $(document).ready(function () {
+          $('#imgAvatar').removeClass(self.prevClass);
+          $('#imgAvatar').addClass(self.cssClass);
+          $('#route').html(person.url);
+          $('#imgD').removeAttr('src');
+          $('#imgD').attr('src', person.img);
+        });
       });
-    console.log(self.viewData);
   }
 
 }

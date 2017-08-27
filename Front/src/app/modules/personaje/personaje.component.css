@@ -2,7 +2,27 @@
     width: 400px;
   }
   
-  .example-header-image {
-    background-image: url('../../../assets/img/Luke-rotjpromo.jpg');
+  .luke {
+    background-image: url('../../../assets/img/Luke.jpg');
     background-size: cover;
+  }
+
+  .han {
+    background-image: url('../../../assets/img/Han.jpg');
+    background-size: cover;
+  }
+
+  .leia {
+    background-image: url('../../../assets/img/Leia.jpg');
+    background-size: cover;
+  }
+
+  .rey {
+    background-image: url('../../../assets/img/Rey.jpg');
+    background-size: cover;
+  }
+
+  .default {
+    background-image: url('../../../assets/img/Logo_Star_Wars.svg');
+    background-size: auto;
   }
