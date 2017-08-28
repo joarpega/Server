@@ -1,3 +1,14 @@
 extends ./layout.jade
 block contenido
-    a(href="/api/personajes" class="btn btn-primary") Iniciar test
+  #one.container
+   a(href="/api/personajes" class="btn btn-primary") /api/personajes
+  #two.container
+   p
+   a(href="/api/personaje/luke" class="btn btn-primary") /api/personaje/:nombre
+  #three.container
+   p
+   a(href="/api/residentes" class="btn btn-primary") /api/residentes
+  #four.container
+   p
+   a(href="http://localhost:3001" target="_blank" class="btn btn-primary") Abrir Front en Angular
+

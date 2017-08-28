@@ -25,6 +25,9 @@ export const apiUrl = {
   leia: url.base + 'personaje/leia',
   rey: url.base + 'personaje/rey',
   personajes: url.base + 'personajes',
+  personajesNombre: url.base + 'personajes?ordenar=nombre',
+  personajesPeso: url.base + 'personajes?ordenar=peso',
+  residentes: url.base + 'residentes',
 };
 
 

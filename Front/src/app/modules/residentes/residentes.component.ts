@@ -53,7 +53,7 @@ export class ResidentesComponent implements OnInit {
     { name: 'op', value: 6 }];
 
     self.viewData = self.apiService
-      .get(apiUrl.personaje + 'luke')
+      .get(apiUrl.residentes)
       .subscribe(x => {
         console.log('algo------------');
         console.log(x);

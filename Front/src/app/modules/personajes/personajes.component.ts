@@ -9,10 +9,10 @@ import { ApiService } from '../../_services/index';
 import { DataSource } from '@angular/cdk';
 import { MdPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import {Sort} from '@angular/material';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
-
 
 @Component({
   selector: 'app-personajes',
@@ -20,11 +20,13 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./personajes.component.css'],
   providers: [ApiService]
 })
+
+
 export class PersonajesComponent implements OnInit {
   private translations: any;
-
   private viewData: any = {};
   dataSource: any= [];
+  sortedData;
 
 
   constructor(private http: Http,
@@ -37,12 +39,16 @@ export class PersonajesComponent implements OnInit {
     const language = environment.language;
     translate.setDefaultLang(language);
     translate.use(language);
+
+
+    this.loadData();
   }
 
   ngOnInit() {
     const self = this;
-    self.loadData();
-   }
+    // self.loadData();
+
+  }
 
 
   loadData() {
@@ -50,9 +56,25 @@ export class PersonajesComponent implements OnInit {
     self.viewData = self.apiService
       .get(apiUrl.personajes)
       .subscribe(x => {
-        self.dataSource = x['result'];
-        console.log(x);
+        self.dataSource = { data: x['result'] };
+        console.log(self.dataSource);
       });
   }
 
+  sortData(sort: Sort) {
+    const self = this;
+
+      switch (sort.active) {
+        case 'name': return self.apiService
+        .get(apiUrl.personajes)
+        .subscribe(x => {
+          self.dataSource = { data: x['result'] };
+          console.log(self.dataSource);
+        });
+        default: return 0;
+      }
+  }
+
+
 }
+
